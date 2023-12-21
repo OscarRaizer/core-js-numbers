@@ -409,8 +409,8 @@ function getNumberValue(/* number */) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  return typeof number === 'number' && Number.isFinite(number);
 }
 
 /**
@@ -424,8 +424,11 @@ function isNumber(/* number */) {
  * 5.1  => false
  * '5'  => false
  */
-function isInteger(/* number */) {
-  throw new Error('Not implemented');
+function isInteger(number) {
+  if (Number.isInteger(number)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -499,8 +502,8 @@ function roundToSmallestInteger(number) {
  * 5.1  => 6
  * -5.9 => -5
  */
-function roundToLargestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToLargestInteger(number) {
+  return Math.ceil(number);
 }
 
 /**
